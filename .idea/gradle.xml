@@ -7,11 +7,28 @@
         <compositeConfiguration>
           <compositeBuild compositeDefinitionSource="SCRIPT">
             <builds>
+              <build path="$PROJECT_DIR$/application" name="application">
+                <projects>
+                  <project path="$PROJECT_DIR$/application" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/build-logic" name="build-logic">
                 <projects>
                   <project path="$PROJECT_DIR$/build-logic" />
                   <project path="$PROJECT_DIR$/build-logic/commons" />
                   <project path="$PROJECT_DIR$/build-logic/spring-boot-application" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/core" name="core">
+                <projects>
+                  <project path="$PROJECT_DIR$/core" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/platforms" name="platforms">
+                <projects>
+                  <project path="$PROJECT_DIR$/platforms" />
+                  <project path="$PROJECT_DIR$/platforms/application-platform" />
+                  <project path="$PROJECT_DIR$/platforms/plugins-platform" />
                 </projects>
               </build>
             </builds>
@@ -22,9 +39,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/application" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/commons" />
             <option value="$PROJECT_DIR$/build-logic/spring-boot-application" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/platforms" />
+            <option value="$PROJECT_DIR$/platforms/application-platform" />
+            <option value="$PROJECT_DIR$/platforms/plugins-platform" />
           </set>
         </option>
       </GradleProjectSettings>

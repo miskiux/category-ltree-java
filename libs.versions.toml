@@ -1,2 +1,5 @@
 [libraries]
 spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+
+# Gradle plugin dependencies
+spring-boot-gradle-plugin = { module = "org.springframework.boot:org.springframework.boot.gradle.plugin" }

@@ -1,7 +1,10 @@
 plugins {
-    `kotlin-dsl` // <1>
+    `kotlin-dsl`
 }
 
 dependencies {
-    implementation("org.springframework.boot:org.springframework.boot.gradle.plugin")  // <4>
+    implementation("org.springframework.boot:org.springframework.boot.gradle.plugin")
+    implementation(platform("com.category.tree.platform:plugins-platform"))
+
+    implementation(project(":commons"))
 }

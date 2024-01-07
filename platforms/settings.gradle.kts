@@ -7,3 +7,4 @@ dependencyResolutionManagement {
 rootProject.name = "platforms"
 
 include("application-platform")
+include("plugins-platform")

@@ -1,6 +1,7 @@
 dependencyResolutionManagement {
     repositories.mavenCentral()
     repositories.gradlePluginPortal()
+    repositories.google()
 
     versionCatalogs.create("libs") {
         from(files("../libs.versions.toml"))
