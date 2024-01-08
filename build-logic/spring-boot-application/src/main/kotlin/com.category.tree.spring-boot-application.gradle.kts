@@ -3,6 +3,9 @@ plugins {
     id("org.springframework.boot")
 }
 
+val libs = the<VersionCatalogsExtension>().named("libs")
+
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation(libs.findLibrary("spring-boot-starter-web").get())
+    implementation(platform("com.category.tree.platform:application-platform"))
 }
