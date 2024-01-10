@@ -4,5 +4,5 @@ import java.math.BigDecimal;
 
 public class CreateCategoryRequest {
     public String name;
-    public double price;
+    public String price;
 }

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  category-postgres:
+    image: postgres:14.2
+    ports:
+      - '5438:5432'
+    environment:
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+      - POSTGRES_DB=category
+  category-test-postgres:
+    image: postgres:14.2
+    ports:
+      - '5439:5432'
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test

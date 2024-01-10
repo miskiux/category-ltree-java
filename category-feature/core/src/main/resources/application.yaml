@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: "category-feature"
+  datasource:
+    password: dev
+    url: jdbc:postgresql://localhost:5438/category
+    username: dev
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+        enable_lazy_load_no_trans: true
+        order_by:
+          default_null_ordering: last

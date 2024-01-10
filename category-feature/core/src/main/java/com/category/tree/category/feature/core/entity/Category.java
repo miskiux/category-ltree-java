@@ -2,23 +2,21 @@ package com.category.tree.category.feature.core.entity;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
-
 @Entity
 @Table(name = "category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
-    private Long id;
+    private String id;
 
-    @Column(name = "name", nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String name;
 
-    @Column(name = "price", nullable = false)
-    private double price;
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String price;
 
-    public Category(String name, double price) {
+    public Category(String name, String price) {
         this.name = name;
         this.price = price;
     }
