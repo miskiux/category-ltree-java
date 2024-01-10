@@ -1,4 +1,4 @@
-package com.category.tree.application;
+package com.category.tree.application.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

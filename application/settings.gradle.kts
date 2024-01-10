@@ -16,3 +16,7 @@ dependencyResolutionManagement {
 }
 
 includeBuild("../platforms")
+includeBuild("../category-feature")
+
+rootProject.name = "application"
+include("app")

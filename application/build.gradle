@@ -1,3 +1,0 @@
-plugins {
-    id("com.category.tree.spring-boot-application")
-}

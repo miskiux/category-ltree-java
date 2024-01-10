@@ -10,6 +10,7 @@
               <build path="$PROJECT_DIR$/application" name="application">
                 <projects>
                   <project path="$PROJECT_DIR$/application" />
+                  <project path="$PROJECT_DIR$/application/app" />
                 </projects>
               </build>
               <build path="$PROJECT_DIR$/build-logic" name="build-logic">
@@ -17,17 +18,20 @@
                   <project path="$PROJECT_DIR$/build-logic" />
                   <project path="$PROJECT_DIR$/build-logic/commons" />
                   <project path="$PROJECT_DIR$/build-logic/spring-boot-application" />
+                  <project path="$PROJECT_DIR$/build-logic/spring-boot-data" />
                 </projects>
               </build>
-              <build path="$PROJECT_DIR$/core" name="core">
+              <build path="$PROJECT_DIR$/category-feature" name="category-feature">
                 <projects>
-                  <project path="$PROJECT_DIR$/core" />
+                  <project path="$PROJECT_DIR$/category-feature" />
+                  <project path="$PROJECT_DIR$/category-feature/core" />
                 </projects>
               </build>
               <build path="$PROJECT_DIR$/platforms" name="platforms">
                 <projects>
                   <project path="$PROJECT_DIR$/platforms" />
                   <project path="$PROJECT_DIR$/platforms/application-platform" />
+                  <project path="$PROJECT_DIR$/platforms/data-platform" />
                   <project path="$PROJECT_DIR$/platforms/plugins-platform" />
                 </projects>
               </build>
@@ -40,12 +44,16 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/application" />
+            <option value="$PROJECT_DIR$/application/app" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/commons" />
             <option value="$PROJECT_DIR$/build-logic/spring-boot-application" />
-            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/build-logic/spring-boot-data" />
+            <option value="$PROJECT_DIR$/category-feature" />
+            <option value="$PROJECT_DIR$/category-feature/core" />
             <option value="$PROJECT_DIR$/platforms" />
             <option value="$PROJECT_DIR$/platforms/application-platform" />
+            <option value="$PROJECT_DIR$/platforms/data-platform" />
             <option value="$PROJECT_DIR$/platforms/plugins-platform" />
           </set>
         </option>

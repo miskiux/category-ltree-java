@@ -8,3 +8,4 @@ rootProject.name = "platforms"
 
 include("application-platform")
 include("plugins-platform")
+include("data-platform")

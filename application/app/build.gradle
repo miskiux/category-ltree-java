@@ -1,0 +1,8 @@
+plugins {
+    id("com.category.tree.spring-boot-application")
+}
+
+
+dependencies {
+    implementation("com.category.tree.category-feature:core")
+}

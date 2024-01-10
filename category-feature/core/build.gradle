@@ -1,0 +1,5 @@
+plugins {
+    id("com.category.tree.spring-boot-data")
+}
+
+group = "com.category.tree.category-feature"
