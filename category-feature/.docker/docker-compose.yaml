@@ -9,6 +9,9 @@ services:
       - POSTGRES_USER=dev
       - POSTGRES_PASSWORD=dev
       - POSTGRES_DB=category
+    volumes:
+      - pg_storage:/var/lib/postgresql/data
+      - ./init-extension.sh:/docker-entrypoint-initdb.d/init-extension.sh
   category-test-postgres:
     image: postgres:14.2
     ports:
