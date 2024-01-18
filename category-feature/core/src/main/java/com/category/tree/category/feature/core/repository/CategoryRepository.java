@@ -1,9 +1,33 @@
 package com.category.tree.category.feature.core.repository;
 
 import com.category.tree.category.feature.core.entity.Category;
-import org.springframework.data.repository.Repository;
+import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
-public interface CategoryRepository extends Repository<Category, Long> {
-    Category save(Category category);
+interface CategoryJpaRepository extends JpaRepository<Category, String> {
+}
+
+public interface CategoryRepository {
+    Category create(Category category);
+
+    Category findById(String id);
+}
+
+@Service
+class CategoryRepositoryImpl implements CategoryRepository {
+
+    @Autowired
+    CategoryJpaRepository categoryJpaRepository;
+
+    public Category create(Category category) {
+        return categoryJpaRepository.save(category);
+    }
+
+    public Category findById(String id) {
+        return categoryJpaRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(id));
+    }
 
 }

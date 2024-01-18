@@ -1,23 +1,29 @@
 package com.category.tree.category.feature.core.service;
 
+import com.category.tree.category.feature.core.builder.PathBuilder;
 import com.category.tree.category.feature.core.dto.CreateCategoryRequest;
 import com.category.tree.category.feature.core.entity.Category;
 import com.category.tree.category.feature.core.repository.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CategoryService {
-    private final CategoryRepository repository;
-
-    public CategoryService(CategoryRepository repository) {
-        this.repository = repository;
-    }
+    @Autowired
+    CategoryRepository categoryRepository;
 
     public void create(CreateCategoryRequest request) {
-        Category category = new Category(
-                request.name, request.price
-        );
+        String ancestorPath = null;
+        PathBuilder pathBuilder = new PathBuilder();
 
-        this.repository.save(category);
+        if (request.parentId != null) {
+            ancestorPath = this.categoryRepository.findById(request.parentId).getPath();
+        }
+
+        pathBuilder.buildPath(ancestorPath, request.name);
+
+        this.categoryRepository.create(
+                new Category(request.name, pathBuilder.getPath())
+        );
     }
 }

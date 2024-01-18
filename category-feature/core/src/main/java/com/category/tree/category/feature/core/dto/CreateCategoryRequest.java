@@ -1,8 +1,9 @@
 package com.category.tree.category.feature.core.dto;
 
-import java.math.BigDecimal;
+import org.springframework.lang.Nullable;
 
 public class CreateCategoryRequest {
     public String name;
-    public String price;
+    @Nullable
+    public String parentId = null;
 }

@@ -1,4 +1,7 @@
 version: '3.8'
+name: category-ltree
+volumes:
+  pg_storage:
 
 services:
   category-postgres:
@@ -17,6 +20,9 @@ services:
     ports:
       - '5439:5432'
     environment:
-      - POSTGRES_USER=test
-      - POSTGRES_PASSWORD=test
-      - POSTGRES_DB=test
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+      - POSTGRES_DB=category
+    volumes:
+      - pg_storage:/var/lib/postgresql/data
+      - ./init-extension.sh:/docker-entrypoint-initdb.d/init-extension.sh

@@ -1,6 +1,10 @@
 package com.category.tree.category.feature.core.entity;
 
+import com.category.tree.category.feature.core.type.LtreeType;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "category")
@@ -10,14 +14,25 @@ public class Category {
     @Column(name = "id")
     private String id;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(nullable = false, columnDefinition = "text")
     private String name;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String price;
+    @Column(nullable = true, columnDefinition = "money")
+    private BigDecimal price;
 
-    public Category(String name, String price) {
+    @Column(nullable = false, columnDefinition = "ltree")
+    @Type(LtreeType.class)
+    private String path;
+
+    public String getPath() {
+        return this.path;
+    }
+
+    public Category(String name, String path) {
         this.name = name;
-        this.price = price;
+        this.path = path;
+    }
+
+    public Category() {
     }
 }
