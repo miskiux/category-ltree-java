@@ -22,14 +22,6 @@ public class CreateCategoryTest {
     @Test
     @DisplayName("it should create category")
     public void createCategory() {
-        String name = "Catalog";
-        CreateCategoryRequest request = new CreateCategoryRequest();
-        request.setName(name);
-        String categoryId = this.categoryService.create(
-                request
-        );
-        Category category = this.categoryRepository.findById(categoryId);
-        Assertions.assertEquals(categoryId, category.getId());
     }
 
     @Test

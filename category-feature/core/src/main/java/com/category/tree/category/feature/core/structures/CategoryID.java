@@ -10,12 +10,11 @@ public class CategoryID {
         this.value = value;
     }
 
+    public CategoryID(String value) {
+        this.value = UUID.fromString(value);
+    }
+
     public String toString() {
         return this.value.toString();
     }
-
-    public UUID toValue(String value) {
-        return UUID.fromString(value);
-    }
-
 }

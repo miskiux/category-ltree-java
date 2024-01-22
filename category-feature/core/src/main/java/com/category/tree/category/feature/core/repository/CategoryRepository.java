@@ -1,17 +1,20 @@
 package com.category.tree.category.feature.core.repository;
 
 import com.category.tree.category.feature.core.entity.Category;
+import com.category.tree.category.feature.core.structures.CategoryID;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-interface CategoryJpaRepository extends JpaRepository<Category, String> {
+import java.util.UUID;
+
+interface CategoryJpaRepository extends JpaRepository<Category, UUID> {
 }
 
 public interface CategoryRepository {
     Category create(Category category);
 
-    Category findById(String id);
+    Category findById(CategoryID id);
 }
 
 @Service
@@ -27,9 +30,9 @@ class CategoryRepositoryImpl implements CategoryRepository {
         return categoryJpaRepository.save(category);
     }
 
-    public Category findById(String id) {
-        return categoryJpaRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(id));
+    public Category findById(CategoryID id) {
+        return categoryJpaRepository.findById(id.value)
+                .orElseThrow(() -> new EntityNotFoundException(id.toString()));
     }
 
 }

@@ -1,18 +1,19 @@
 package com.category.tree.category.feature.core.entity;
 
+import com.category.tree.category.feature.core.structures.CategoryID;
 import com.category.tree.category.feature.core.type.LtreeType;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Entity
 @Table(name = "category")
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
-    private String id;
+    private UUID id;
 
     @Column(nullable = false, columnDefinition = "text")
     private String name;
@@ -28,11 +29,8 @@ public class Category {
         return this.path;
     }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public Category(String name, String path) {
+    public Category(CategoryID id, String name, String path) {
+        this.id = id.value;
         this.name = name;
         this.path = path;
     }
