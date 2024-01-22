@@ -13,8 +13,4 @@ public class CategoryID {
     public CategoryID(String value) {
         this.value = UUID.fromString(value);
     }
-
-    public String toString() {
-        return this.value.toString();
-    }
 }

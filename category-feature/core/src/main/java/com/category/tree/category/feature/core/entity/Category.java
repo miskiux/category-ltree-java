@@ -11,8 +11,17 @@ import java.util.UUID;
 @Entity
 @Table(name = "category")
 public class Category {
+    public Category(CategoryID id, String name, String path) {
+        this.id = id.value;
+        this.name = name;
+        this.path = path;
+    }
+
+    public Category() {
+    }
+
     @Id
-    @Column(name = "id")
+    @Column(nullable = false, name = "id")
     private UUID id;
 
     @Column(nullable = false, columnDefinition = "text")
@@ -27,14 +36,5 @@ public class Category {
 
     public String getPath() {
         return this.path;
-    }
-
-    public Category(CategoryID id, String name, String path) {
-        this.id = id.value;
-        this.name = name;
-        this.path = path;
-    }
-
-    public Category() {
     }
 }
