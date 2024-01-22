@@ -2,7 +2,6 @@ package com.category.tree.category.feature.core.repository;
 
 import com.category.tree.category.feature.core.entity.Category;
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +17,11 @@ public interface CategoryRepository {
 @Service
 class CategoryRepositoryImpl implements CategoryRepository {
 
-    @Autowired
-    CategoryJpaRepository categoryJpaRepository;
+    private final CategoryJpaRepository categoryJpaRepository;
+
+    CategoryRepositoryImpl(CategoryJpaRepository categoryJpaRepository) {
+        this.categoryJpaRepository = categoryJpaRepository;
+    }
 
     public Category create(Category category) {
         return categoryJpaRepository.save(category);

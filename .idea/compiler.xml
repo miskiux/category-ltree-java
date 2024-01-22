@@ -5,6 +5,8 @@
       <module name="application.api" target="21" />
       <module name="application.api.main" target="21" />
       <module name="application.api.test" target="21" />
+      <module name="build-logic.shared-spring.main" target="21" />
+      <module name="build-logic.shared-spring.test" target="21" />
       <module name="common.domain-model" target="21" />
       <module name="common.domain-model.main" target="21" />
       <module name="common.domain-model.test" target="21" />

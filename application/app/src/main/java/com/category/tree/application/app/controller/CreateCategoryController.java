@@ -12,7 +12,7 @@ public class CreateCategoryController {
     CategoryService categoryService;
 
     @PostMapping("/create")
-    void create(@RequestBody CreateCategoryRequest request) {
-        categoryService.create(request);
+    String create(@RequestBody CreateCategoryRequest request) {
+        return categoryService.create(request);
     }
 }

@@ -12,8 +12,10 @@ public class PathBuilder {
         return stringifyPathList(this.pathList);
     }
 
-    public void buildPath(@Nullable String... args) {
+    public String buildPath(@Nullable String... args) {
         Arrays.stream(args).filter(Objects::nonNull).forEach(this::addToListPath);
+
+        return this.getPath();
     }
 
     public void addToListPath(String node) {

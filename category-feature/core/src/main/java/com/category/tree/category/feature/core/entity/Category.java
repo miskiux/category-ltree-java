@@ -28,6 +28,10 @@ public class Category {
         return this.path;
     }
 
+    public String getId() {
+        return this.id;
+    }
+
     public Category(String name, String path) {
         this.name = name;
         this.path = path;

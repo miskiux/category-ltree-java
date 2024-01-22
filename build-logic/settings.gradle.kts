@@ -13,5 +13,6 @@ dependencyResolutionManagement {
 rootProject.name = "build-logic"
 
 include("commons")
+include("shared-spring")
 include("spring-boot-application")
 include("spring-boot-data")

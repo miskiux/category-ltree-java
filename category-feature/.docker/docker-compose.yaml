@@ -1,7 +1,5 @@
 version: '3.8'
-name: category-ltree
-volumes:
-  pg_storage:
+name: category-feature
 
 services:
   category-postgres:
@@ -13,16 +11,23 @@ services:
       - POSTGRES_PASSWORD=dev
       - POSTGRES_DB=category
     volumes:
-      - pg_storage:/var/lib/postgresql/data
       - ./init-extension.sh:/docker-entrypoint-initdb.d/init-extension.sh
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'pg_isready -h localhost -U ${POSTGRES_USER} -d ${POSTGRES_DB}'
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
   category-test-postgres:
     image: postgres:14.2
     ports:
       - '5439:5432'
     environment:
-      - POSTGRES_USER=dev
-      - POSTGRES_PASSWORD=dev
-      - POSTGRES_DB=category
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=category-test
     volumes:
-      - pg_storage:/var/lib/postgresql/data
       - ./init-extension.sh:/docker-entrypoint-initdb.d/init-extension.sh

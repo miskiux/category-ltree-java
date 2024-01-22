@@ -4,15 +4,18 @@ import com.category.tree.category.feature.core.builder.PathBuilder;
 import com.category.tree.category.feature.core.dto.CreateCategoryRequest;
 import com.category.tree.category.feature.core.entity.Category;
 import com.category.tree.category.feature.core.repository.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CategoryService {
-    @Autowired
-    CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
-    public void create(CreateCategoryRequest request) {
+    public CategoryService(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
+
+
+    public String create(CreateCategoryRequest request) {
         String ancestorPath = null;
         PathBuilder pathBuilder = new PathBuilder();
 
@@ -20,10 +23,12 @@ public class CategoryService {
             ancestorPath = this.categoryRepository.findById(request.parentId).getPath();
         }
 
-        pathBuilder.buildPath(ancestorPath, request.name);
+        String path = pathBuilder.buildPath(ancestorPath, request.name);
 
-        this.categoryRepository.create(
-                new Category(request.name, pathBuilder.getPath())
+        Category category = this.categoryRepository.create(
+                new Category(request.name, path)
         );
+
+        return category.getId();
     }
 }

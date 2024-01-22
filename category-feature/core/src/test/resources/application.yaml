@@ -1,0 +1,19 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    password: test
+    url: jdbc:postgresql://localhost:5439/category-test
+    username: test
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+        enable_lazy_load_no_trans: true
+        order_by:
+          default_null_ordering:

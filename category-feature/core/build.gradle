@@ -2,4 +2,8 @@ plugins {
     id("com.category.tree.spring-boot-data")
 }
 
+test {
+    useJUnitPlatform()
+}
+
 group = "com.category.tree.category-feature"
