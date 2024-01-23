@@ -19,12 +19,14 @@ public class CategoryService {
     }
 
     public Category create(CreateCategoryRequest request) {
-        PathBuilder pathBuilder = new PathBuilder();
         final String ancestorPath = request.parentId != null
                 ? this.categoryRepository.findById(request.parentId).getPath()
                 : null;
 
+        PathBuilder pathBuilder = new PathBuilder();
         CategoryID categoryID = new CategoryID(UUID.randomUUID());
+
+        //  UUID primary keys are incompatible in ltree extension, thus using name for constructing path hierarchy.
         String path = pathBuilder.buildPath(ancestorPath, request.name);
 
         return this.categoryRepository.create(
