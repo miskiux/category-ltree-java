@@ -13,7 +13,7 @@ import java.util.UUID;
 
 interface CategoryJpaRepository extends JpaRepository<Category, UUID> {
     @Query(
-            value = "SELECT * FROM category WHERE path ~ '*.:name'",
+            value = "SELECT * FROM category WHERE path @> (SELECT path FROM category WHERE name = :name) ",
             nativeQuery = true)
     List<Category> getBranchByName(@Param("name") String name);
 }
