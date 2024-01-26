@@ -1,5 +1,6 @@
 plugins {
     id("com.category.tree.spring-boot-data")
+    id("io.freefair.lombok") version "8.4"
 }
 
 test {

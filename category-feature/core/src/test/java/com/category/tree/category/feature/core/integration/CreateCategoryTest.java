@@ -2,11 +2,8 @@ package com.category.tree.category.feature.core.integration;
 
 
 import com.category.tree.category.feature.core.ApplicationTest;
-import com.category.tree.category.feature.core.dto.CreateCategoryRequest;
-import com.category.tree.category.feature.core.entity.Category;
 import com.category.tree.category.feature.core.repository.CategoryRepository;
 import com.category.tree.category.feature.core.service.CategoryService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

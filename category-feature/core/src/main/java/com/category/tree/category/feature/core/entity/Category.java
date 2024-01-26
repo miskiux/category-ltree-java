@@ -3,11 +3,16 @@ package com.category.tree.category.feature.core.entity;
 import com.category.tree.category.feature.core.structures.CategoryID;
 import com.category.tree.category.feature.core.type.LtreeType;
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
+
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "category")
 public class Category {
@@ -15,9 +20,6 @@ public class Category {
         this.id = id.value;
         this.name = name;
         this.path = path;
-    }
-
-    public Category() {
     }
 
     @Id
@@ -33,8 +35,4 @@ public class Category {
     @Column(nullable = false, columnDefinition = "ltree")
     @Type(LtreeType.class)
     private String path;
-
-    public String getPath() {
-        return this.path;
-    }
 }
