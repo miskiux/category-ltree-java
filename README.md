@@ -16,6 +16,15 @@ component plugins.
 
 component `build-logic` defines a single source of truth for builds and are used for common project configurations.
 
+## steps
+
+1. run docker compose inside category-feature component to start the services
+
+2. run ```./gradlew :application:app:bootRun``` at root to run the app
+
+
+
+
 
 
 
